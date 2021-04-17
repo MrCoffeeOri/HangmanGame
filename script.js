@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    const Words = ["Banana", "Apple", "Microsoft", "Xbox", "Man", "Hand", "Red", "Strawberry", "Playstation", "Sony", "Blue", "Yellow", "Green", "Silver", "Meat", "Cookie", "Selfish"]
+    const Words = ["Banana", "Apple", "Microsoft", "Xbox", "Man", "Hand", "Red", "Strawberry", "Playstation", "Sony", "Blue", "Yellow", "Green", "Silver", "Meat", "Cookie", "Selfish", "Github", "Javascript", "Csharp", "Cplusplus", "Html", "Css", "Scss", "Php"]
     var Word = Words[Math.floor(Math.random() * Words.length)]
     var ErrorsCount = 0
     var HitsCount = 0
