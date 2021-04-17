@@ -1,0 +1,46 @@
+* {
+  font-family: 'Nunito', sans-serif;
+  color: white;
+}
+
+body {
+  margin: 0;
+  background-color: #293257;
+  text-align: center;
+}
+
+.score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.score h2 {
+  margin: 0 80px 0 80px;
+}
+
+input, button {
+  border-style: none;
+  outline: none;
+  text-align: center;
+  border-radius: .2rem;
+  background-color: #1d233c;
+  border: 2px solid #161a2c;
+}
+
+input:hover, button:hover {
+  background-color: #161a2c;
+}
+
+#inputChars input {
+  width: 5%;
+  margin: 10px;
+}
+
+h1 {
+  font-size: 3pc;
+}
+/*# sourceMappingURL=index.css.map */
