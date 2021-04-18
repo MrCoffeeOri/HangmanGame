@@ -1,14 +1,15 @@
+const Words = ["Banana", "Apple", "Microsoft", "Xbox", "Man", "Hand", "Red", "Strawberry", "Playstation", "Sony", "Blue", "Yellow", "Green", "Silver", "Meat", "Cookie", "Selfish", "Github", "Javascript", "Csharp", "Cplusplus", "Html", "Css", "Scss", "Php"]
+var ErrorsCount = 0
+var HitsCount = 0
+var HintBtnPressed = false
+var Wins = localStorage.getItem("Wins")
+if (Wins == null) Wins = 0;       
+var Loses = localStorage.getItem("Loses")
+if (Loses == null) Loses = 0;
+
 window.addEventListener("load", () => {
-    const Words = ["Banana", "Apple", "Microsoft", "Xbox", "Man", "Hand", "Red", "Strawberry", "Playstation", "Sony", "Blue", "Yellow", "Green", "Silver", "Meat", "Cookie", "Selfish", "Github", "Javascript", "Csharp", "Cplusplus", "Html", "Css", "Scss", "Php"]
     var Word = Words[Math.floor(Math.random() * Words.length)]
-    var ErrorsCount = 0
-    var HitsCount = 0
-    var Wins = localStorage.getItem("Wins")
-    if (Wins == null) Wins = 0;       
-    var Loses = localStorage.getItem("Loses")
-    if (Loses == null) Loses = 0;
-    var ErrorsMax = Word.length
-    var HintBtnPressed = false
+    var ErrorsMax = Word.length + 1
     document.getElementById("MaxErrors").innerText = ErrorsMax
     document.getElementById("Wins").innerText = `${Wins}`;
     document.getElementById("Loses").innerText = `${Loses}`;
