@@ -2,10 +2,8 @@ const Words = ["Banana", "Apple", "Microsoft", "Xbox", "Man", "Hand", "Red", "St
 var ErrorsCount = 0
 var HitsCount = 0
 var HintBtnPressed = false
-var Wins = localStorage.getItem("Wins")
-if (Wins == null) Wins = 0;       
-var Loses = localStorage.getItem("Loses")
-if (Loses == null) Loses = 0;
+var Wins = localStorage.getItem("Wins") != null ? localStorage.getItem("Wins") : 0
+var Loses = localStorage.getItem("Loses") != null ? localStorage.getItem("Loses") : 0
 
 window.addEventListener("load", () => {
     var Word = Words[Math.floor(Math.random() * Words.length)]
