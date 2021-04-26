@@ -8,13 +8,20 @@ var Loses = localStorage.getItem("Loses") != null ? localStorage.getItem("Loses"
 window.addEventListener("load", () => {
     var Word = Words[Math.floor(Math.random() * Words.length)]
     var ErrorsMax = Word.length + 1
+
+    function SetCorrect(InputNode, index) {
+        InputNode[index].value = Word[index];
+        InputNode[index].readOnly = true;
+        HitsCount++;
+    }
+    
     document.getElementById("MaxErrors").innerText = ErrorsMax
     document.getElementById("Wins").innerText = `${Wins}`;
     document.getElementById("Loses").innerText = `${Loses}`;
     
     var DivInps = document.getElementById("inputChars")
     for (let index = 0; index < Word.length; index++) DivInps.appendChild(document.createElement("input"));
-
+    
     var DivInpsNodes = DivInps.querySelectorAll("input")
     document.getElementById("SubmitBtn").addEventListener('click', () => {
         for (let i = 0; i < DivInpsNodes.length; i++) {
@@ -35,19 +42,14 @@ window.addEventListener("load", () => {
         if (document.getElementById("ErrosrCount") != null) document.getElementById("ErrosrCount").innerText = ErrorsCount;
         if (document.getElementById("reloadPage") != null) document.getElementById("reloadPage").addEventListener('click', () => location.reload());
     })
-
+    
     document.getElementById("HintBtn").addEventListener('click', () => {
         if (HintBtnPressed == false) {
             if (Word.length >= 6) {
-                DivInpsNodes[3].value = Word[3];
-                DivInpsNodes[3].readOnly = true;
-                HitsCount++;
+                SetCorrect(DivInpsNodes, 3);
             } 
-            DivInpsNodes[0].value = Word[0];
-            DivInpsNodes[0].readOnly = true;
-            DivInpsNodes[DivInpsNodes.length - 1].value = Word[Word.length - 1];
-            DivInpsNodes[DivInpsNodes.length - 1].readOnly = true;
-            HitsCount += 2;
+            SetCorrect(DivInpsNodes, 0)
+            SetCorrect(DivInpsNodes, DivInpsNodes.length - 1)
             HintBtnPressed = true;
         }
     })
