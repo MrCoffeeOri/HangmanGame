@@ -8,11 +8,13 @@ var Loses = localStorage.getItem("Loses") != null ? localStorage.getItem("Loses"
 window.addEventListener("load", () => {
     var Word = Words[Math.floor(Math.random() * Words.length)]
     var ErrorsMax = Word.length + 1
-
-    function SetCorrect(InputNode, index) {
-        InputNode[index].value = Word[index];
-        InputNode[index].readOnly = true;
-        HitsCount++;
+    
+    function SetCorrectByIndex(...index) {
+        index.map(index => {
+            DivInpsNodes[index].value = Word[index];
+            DivInpsNodes[index].readOnly = true;
+            HitsCount++;
+        })
     }
     
     document.getElementById("MaxErrors").innerText = ErrorsMax
@@ -20,9 +22,10 @@ window.addEventListener("load", () => {
     document.getElementById("Loses").innerText = `${Loses}`;
     
     var DivInps = document.getElementById("inputChars")
-    for (let index = 0; index < Word.length; index++) DivInps.appendChild(document.createElement("input"));
+    for (let index = 0; index < Word.length; index++) 
+        DivInps.appendChild(document.createElement("input"));
     
-    var DivInpsNodes = DivInps.querySelectorAll("input")
+    var DivInpsNodes = DivInps.getElementsByTagName("input")
     document.getElementById("SubmitBtn").addEventListener('click', () => {
         for (let i = 0; i < DivInpsNodes.length; i++) {
             if (DivInpsNodes[i].value == Word[i] && DivInpsNodes[i].readOnly != true ) {
@@ -31,25 +34,26 @@ window.addEventListener("load", () => {
             } 
             else if (DivInpsNodes[i].value != "" && DivInpsNodes[i].readOnly != true) ErrorsCount++;
         }
+
         if (HitsCount == Word.length) {
             localStorage.setItem("Wins", ++Wins);
             document.getElementById("MainContent").innerHTML = `YOU WIN ! The word was ${Word}<br/><br/><button id="reloadPage">Take another word</button>`;
-        }
-        if (ErrorsCount >= ErrorsMax) {
+        } else if (ErrorsCount >= ErrorsMax) {
             localStorage.setItem("Loses", ++Loses);
             document.getElementById("MainContent").innerHTML = `GAME OVER ! The word was ${Word}<br/><br/><button id="reloadPage">Take another word</button>`;
         } 
-        if (document.getElementById("ErrosrCount") != null) document.getElementById("ErrosrCount").innerText = ErrorsCount;
-        if (document.getElementById("reloadPage") != null) document.getElementById("reloadPage").addEventListener('click', () => location.reload());
+
+        if (document.getElementById("ErrosrCount") != null) 
+            document.getElementById("ErrosrCount").innerText = ErrorsCount;
+
+        if (document.getElementById("reloadPage") != null) 
+            document.getElementById("reloadPage").addEventListener('click', () => location.reload());
     })
     
     document.getElementById("HintBtn").addEventListener('click', () => {
         if (HintBtnPressed == false) {
-            if (Word.length >= 6) {
-                SetCorrect(DivInpsNodes, 3);
-            } 
-            SetCorrect(DivInpsNodes, 0)
-            SetCorrect(DivInpsNodes, DivInpsNodes.length - 1)
+            if (Word.length >= 6) SetCorrectByIndex(3);
+            SetCorrectByIndex(0, DivInpsNodes.length - 1)
             HintBtnPressed = true;
         }
     })
