@@ -1,4 +1,4 @@
-const Words = ["Banana", "Apple", "Microsoft", "Xbox", "Man", "Hand", "Red", "Strawberry", "Playstation", "Sony", "Blue", "Yellow", "Green", "Silver", "Meat", "Cookie", "Selfish", "Github", "Javascript", "Csharp", "Cplusplus", "Html", "Css", "Scss", "Php"]
+const Words = ["Banana", "Apple", "Man", "Hand", "Red", "Strawberry", "Blue", "Yellow", "Green", "Silver", "Meat", "Cookie", "Selfish", "Chocolate", "Love", "Sweety", "Heart", "Through", "True", "False"]
 var ErrorsCount = 0
 var HitsCount = 0
 var HintBtnPressed = false
