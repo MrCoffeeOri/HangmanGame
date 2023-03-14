@@ -1,4 +1,4 @@
-const Words = ["Banana", "Apple", "Man", "Hand", "Red", "Strawberry", "Blue", "Yellow", "Green", "Silver", "Meat", "Cookie", "Selfish", "Chocolate", "Love", "Sweety", "Heart", "Through", "True", "False"]
+const Words = ["Afraid", "Take", "Frame", "Thought", "Knowledge", "Glass", "Grass", "Grace", "Beautiful", "Archer", "Short", "Tall", "Lost", "Ice", "Eyes", "Masterpiece", "Down", "Front", "Right", "Left", "Back", "Thief", "Robber", "Politician", "Lucky", "Banana", "Apple", "Man", "Hand", "Red", "Strawberry", "Blue", "Yellow", "Green", "Silver", "Meat", "Cookie", "Selfish", "Chocolate", "Love", "Sweety", "Heart", "Through", "True", "False"]
 var ErrorsCount = 0
 var HitsCount = 0
 var HintBtnPressed = false
