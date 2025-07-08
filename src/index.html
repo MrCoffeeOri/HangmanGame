@@ -4,23 +4,68 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
         <link rel="stylesheet" href="SCSS/index.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <title>Hangman Game</title>
     </head>
     <body>
-        <div class="score">
-            <h2>Wins: <span id="Wins"></span></h2>
-            <h2>Loses: <span id="Loses"></span></h2>
+        <div class="info-btn" id="InfoBtn" title="How to play?">i</div>
+        <div class="info-modal" id="InfoModal">
+            <div class="info-modal-content">
+                <span class="close-modal" id="CloseInfoModal">&times;</span>
+                <h2>How to Play Hangman</h2>
+                <ul>
+                    <li>Guess the hidden word by typing one letter per box.</li>
+                    <li>Click <b>Check Word</b> or press <b>Enter</b> to check your guesses.</li>
+                    <li>You have a limited number of errors before the game ends.</li>
+                    <li>Use <b>Get Hint</b> (or press <b>Shift + H</b>) to reveal a letter (once per round).</li>
+                    <li>Use <b>Arrow keys</b> to move between letters.</li>
+                    <li>Press <b>Shift + N</b> or click <b>New Game</b> to start over.</li>
+                </ul>
+                <p>Good luck and have fun!</p>
+            </div>
         </div>
-        <h1>Hangman Game</h1>
-        <div id="MainContent">
-            <p>Errors: <span id="ErrosrCount">0</span> of <span id="MaxErrors"></span></p>
-            <div id="inputChars"></div>
-            <button id="SubmitBtn">Check</button>
-            <button id="HintBtn">Hint</button>
+        <div class="game-container">
+            <header class="game-header">
+                <div class="score-board">
+                    <div class="score-item wins">
+                        <span class="score-label">Wins</span>
+                        <span class="score-value" id="Wins">0</span>
+                    </div>
+                    <div class="score-item loses">
+                        <span class="score-label">Loses</span>
+                        <span class="score-value" id="Loses">0</span>
+                    </div>
+                </div>
+                <h1 class="game-title">Hangman Game</h1>
+            </header>
+            
+            <main class="game-main">
+                <div class="game-info">
+                    <div class="error-counter">
+                        <span class="error-label">Errors:</span>
+                        <span class="error-value" id="ErrorsCount">0</span>
+                        <span class="error-max">/ <span id="MaxErrors">0</span></span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="ProgressFill"></div>
+                    </div>
+                </div>
+                
+                <div class="word-display">
+                    <div id="inputChars" class="letter-inputs"></div>
+                </div>
+                
+                <div class="game-controls">
+                    <button id="SubmitBtn" class="btn btn-primary">Check Word</button>
+                    <button id="HintBtn" class="btn btn-secondary">Get Hint</button>
+                    <button id="NewGameBtn" class="btn btn-tertiary">New Game</button>
+                </div>
+                
+                <div class="game-message" id="GameMessage"></div>
+            </main>
         </div>
     </body>
 </html>
